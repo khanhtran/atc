@@ -1,30 +1,44 @@
 (function() {
 	'use strict';
-  var app = angular.module('tool', ['angular.drag.resize']);
-  app.run(function($rootScope) {
-    var seriously, // the main object that holds the entire composition
-			source, // wrapper object for source video
-			edge, // edge detection effect
-			target; // a wrapper object for our target canvas
+	var app = angular.module('tool', ['angular.drag.resize', 'colorpicker']);
+	app.controller('ToolCtrl', ['$scope', function ($scope) {
+		$scope.color = '#00FF00';
 
+		$scope.debug = function() {
+			console.log('$scope.color', $scope.color);
+		}
+
+		$scope.getStyle = function() {
+			var style = {background: $scope.color};
+			return style;
+		}
+		$scope.parseColor = function() {
+			//var r =
+		}
+
+		$scope.sizeChanged = function() {
+			console.log('resized');
+		}
+		var seriously, source, target, chroma;
 		if (Seriously.incompatible('camera')) {
-			document.body.appendChild(document.createTextNode('Sorry, your browser does not support getUserMedia'));
+			document.body.appendChild(document.createTextNode('Sorry, your browser does not support camera.'));
 			document.querySelector('canvas').style.display = 'none';
 			return;
 		}
-
 		// construct our seriously object
 		seriously = new Seriously();
-
 		// time to get serious
 		source = seriously.source('camera');
+		console.log('source', source);
 		target = seriously.target('#target');
-		edge = seriously.effect('edge');
-
+		//var edge = seriously.effect('edge');
+		chroma = seriously.effect('chroma');
 		// connect all our nodes in the right order
-		edge.source = source;
-		target.source = edge;
-
+		chroma.source = source;
+		target.source = chroma;
+		//chroma.screen = [r, g, b, 1];
 		seriously.go();
-  });
+
+
+	}]);
 })();

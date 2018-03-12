@@ -1,7 +1,8 @@
-
+body {
+  background-image:url('https://static.pexels.com/photos/158251/forest-the-sun-morning-tucholskie-158251.jpeg');
+  background-size:cover;
+}
 .dragable {
-    width: 400px;
-    height: 300px;
     background-color: #FFFFFF;
     border: 2px solid #183147;
     font-family: sans-serif;
@@ -12,6 +13,14 @@
     cursor: move;
   }
 #target {
+  /**
   width: 100%;
   height: 100%;
+  **/
+}
+#toolbar {
+  background: white;
+  width: 200px;
+  height: 300px;
+  padding: 10px;
 }

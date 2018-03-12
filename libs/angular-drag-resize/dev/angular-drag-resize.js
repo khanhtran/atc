@@ -79,7 +79,11 @@ angular.module('angular.drag.resize', [])
               	height: deltaHeight + 'px'
             	};
             }
-          	element.css(newDimensions);
+            element.css(newDimensions);
+            /**Khanh: add to resize child canvas */
+            var canvas = element[0].childNodes[1];
+            canvas.style.width = newDimensions.width;
+            canvas.style.height = newDimensions.height;
           	return false;
         	}
           var mouseup = function() {

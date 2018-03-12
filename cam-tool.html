@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="libs/color-picker/css/color-picker.min.css" />
     <script src="libs/seriously.js/seriously.js"></script>
 	<script src="libs/seriously.js/sources/seriously.camera.js"></script>
-    <!--script src="libs/seriously.js/effects/seriously.edge.js"></script-->
     <script src="libs/seriously.js/effects/seriously.chroma.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="libs/angular-drag-resize/dev/angular-drag-resize.js"></script>
@@ -14,12 +13,13 @@
     <!--color picker-->
     <script src="libs/color-picker/js/color-picker.min.js"></script>
 
-    <script src="js/tool.js"></script>
+    <script src="js/cam-tool.js"></script>
 </head>
 <body ng-app="tool" ng-controller="ToolCtrl">
-	<div class="dragable" draggable resize width="640" height="480" onresize="javascript:alert('resize');">
-        <canvas id="target" width="640" height="480"></canvas>
-    </div>
+    <video id="video"></video>
+    <canvas id="canvas"></canvas>
+
+
 	<div id="toolbar">
         Color: <input type="button" ng-style="getStyle()" color-picker color-picker-model="color"/>
         <button ng-click="debug()">Debug</button>
