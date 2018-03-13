@@ -81,7 +81,7 @@ angular.module('angular.drag.resize', [])
             }
             element.css(newDimensions);
             /**Khanh: add to resize child canvas */
-            var canvas = element[0].childNodes[1];
+            var canvas = $document[0].getElementById('target');
             canvas.style.width = newDimensions.width;
             canvas.style.height = newDimensions.height;
           	return false;

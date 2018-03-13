@@ -3,24 +3,18 @@ body {
   background-size:cover;
 }
 .dragable {
-    background-color: #FFFFFF;
-    border: 2px solid #183147;
+    background: transparent;
+    border: none;
     font-family: sans-serif;
     text-align: center;
     position: absolute;
-    left: 40%;
-    top: 40%;
+    left: 30%;
+    top: 20%;
     cursor: move;
   }
-#target {
-  /**
-  width: 100%;
-  height: 100%;
-  **/
-}
 #toolbar {
-  background: white;
+  /*background: white;*/
   width: 200px;
-  height: 300px;
+  height: 50px;
   padding: 10px;
 }

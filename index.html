@@ -17,12 +17,12 @@
     <script src="js/tool.js"></script>
 </head>
 <body ng-app="tool" ng-controller="ToolCtrl">
-	<div class="dragable" draggable resize width="640" height="480" onresize="javascript:alert('resize');">
+	<div id="container" class="dragable" draggable resize width="640" height="480">
         <canvas id="target" width="640" height="480"></canvas>
     </div>
 	<div id="toolbar">
         Color: <input type="button" ng-style="getStyle()" color-picker color-picker-model="color"/>
-        <button ng-click="debug()">Debug</button>
+        <!--button ng-click="apply()">Apply</button-->
     </div>
 </body>
 </html>
