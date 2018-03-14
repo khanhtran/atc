@@ -15,14 +15,28 @@
     <script src="libs/color-picker/js/color-picker.min.js"></script>
 
     <script src="js/tool.js"></script>
+
+    <!--panorama-->
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.4/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.pannellum.org/2.4/pannellum.js"></script>
 </head>
 <body ng-app="tool" ng-controller="ToolCtrl">
+    <div id="panorama"></div>
+    <div id="toolbar">
+        <input type="button" ng-style="getStyle()" color-picker color-picker-model="color"/>
+        <!--button ng-click="apply()">Apply</button-->
+    </div>
+        <script>
+            pannellum.viewer('panorama', {
+                "type": "equirectangular",
+                "panorama": "/img/cc3000.jpeg",
+                "autoLoad": true
+            });
+        </script>
 	<div id="container" class="dragable" draggable resize width="640" height="480">
         <canvas id="target" width="640" height="480"></canvas>
     </div>
-	<div id="toolbar">
-        Color: <input type="button" ng-style="getStyle()" color-picker color-picker-model="color"/>
-        <!--button ng-click="apply()">Apply</button-->
-    </div>
+
+
 </body>
 </html>

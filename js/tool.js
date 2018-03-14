@@ -1,10 +1,10 @@
 (function() {
 	'use strict';
 	var app = angular.module('tool', ['angular.drag.resize', 'colorpicker']);
-	app.controller('ToolCtrl', ['$scope', '$document', function ($scope, $document) {
+	app.controller('ToolCtrl', ['$scope', '$document', '$window', function ($scope, $document, $window) {
 		$scope.color = '#00FF00';
 		$scope.getStyle = function() {
-			var style = {background: $scope.color};
+			var style = {background: $scope.color, "border": 0, "box-shadow": "none", "border-radius": "0px", "height": "26px"};
 			return style;
 		}
 		$scope.parseColor = function() {
@@ -18,9 +18,7 @@
 				b: b
 			};
 		}
-
 		$scope.initSizing = function() {
-			console.log('initSizing');
 			var canvas = $document[0].getElementById('target');
 			var container = $document[0].getElementById('container');
 			canvas.style.width = container.width;
